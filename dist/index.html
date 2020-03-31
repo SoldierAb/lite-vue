@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lite-vue</title>
+     <!-- inject:js -->
+    <script src="/dist/vue.min.js"></script>
+    <!-- endinject -->
+</head>
+<body>
+    <div id="root">
+        <h2>{{animal.name}}</h2>
+        <h3>{{animal.sex}}</h3>
+        <p>{{animal}}</p>
+        <div v-text="msg"></div>
+        <div v-text="animal.name"></div>
+        <div v-html="htmlStr"></div>
+        <input type="text" v-model="value" />   
+        {{value}}
+        <button v-on:click="clickTest">click</button>
+        <button @click="atTest(animal,msg)">@click change value && message</button>
+    </div>
+    <script>
+        const vm=new Vue({
+            el:"#root",
+            data:{
+                animal:{
+                    name:"Cat",
+                    sex:"man",
+                },
+                msg:"message",
+                htmlStr:`<div>你好</div>`,
+                value:"2312",
+            },
+            methods: {
+                atTest(name,msg,event){
+                    console.log("at",name,msg,event);
+                    this.value=`hello`;
+                    this.msg="message changed";
+                },
+                clickTest(event){
+                    console.log(1,event);
+                },
+            },
+        })
+    </script>
+</body>
+</html>
