@@ -13,9 +13,9 @@ console.log('------------>   ',format);
 
 const injectAction = ()=>{
     const target = gulp.src("./public/index.html"),
-    source = gulp.src([`${output_path}/**/*.js`],{relative: true});
+    source = gulp.src([`./lib/vue.min.js`]);
     return target.pipe(
-        inject(source) 
+        inject(source,{relative: true}) 
     ).pipe(gulp.dest(output_path))
     .pipe(bSync.reload({
         stream: true
@@ -39,7 +39,7 @@ gulp.task("build", async function () {
 
     await bundle.write(
         {
-            file: format==="umd"?`${output_path}/vue.min.js`:"./lib/index.js",
+            file: format==="umd"?`lib/vue.min.js`:"./lib/index.js",
             format,
             name: "Vue",
             sourcemap: true
