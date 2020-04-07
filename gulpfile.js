@@ -9,8 +9,6 @@ const inject = require('gulp-inject');
 const  bSync = require('browser-sync');
 const output_path = "dist";
 
-console.log('------------>   ',format);
-
 const injectAction = ()=>{
     const target = gulp.src("./public/index.html"),
     source = gulp.src([`./lib/vue.min.js`]);

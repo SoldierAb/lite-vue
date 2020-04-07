@@ -50,7 +50,6 @@ export class compileUtil {
         })
 
         node.addEventListener("input",({target:{value}})=>{
-            console.log(value);
             this.setValue(expr,vm,value);
         })
 
